@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class StaticPagesController < ApplicationController
 	def welcome
 	@title = 'Здравствуйте'
 end
