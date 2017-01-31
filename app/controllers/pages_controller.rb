@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-   before_filter :find_page, only: [:idit,:update,:show]
+   before_filter :find_page, only: [:idit,:update,:show,:destroy]
 
 
 	def new
@@ -35,6 +35,10 @@ class PagesController < ApplicationController
 	end
 
 	def destroy
+	  if @page.destroy
+	  	redirect_to pages_path
+	  else
+	  	redirect_to pages_path, error: 'Не получилось удалить'
 	end
 
 	private
