@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+   before_filter :find_page, only: [:idit,:update,:show]
+
+
 	def new
 		@page = Page.new
 	end
@@ -21,10 +24,14 @@ class PagesController < ApplicationController
 	end
 
 	def edit
-		@page = Page.find(params[:id])
 	end
 
 	def update
+	  if @page.update(page_params)
+	  	redirect_to pages_path
+	  else
+	  	render :edit
+	  end
 	end
 
 	def destroy
@@ -33,5 +40,9 @@ class PagesController < ApplicationController
 	private
 	  def page_params
 	  	params[:page].permit(:name, :description)
+	  end
+
+	  def find_page
+	  	@page = Page.find(params[:id])
 	  end
 end
