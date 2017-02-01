@@ -34,11 +34,15 @@ class PagesController < ApplicationController
 	  end
 	end
 
+	def show
+	end
+
 	def destroy
 	  if @page.destroy
 	  	redirect_to pages_path
 	  else
 	  	redirect_to pages_path, error: 'Не получилось удалить'
+	  end
 	end
 
 	private

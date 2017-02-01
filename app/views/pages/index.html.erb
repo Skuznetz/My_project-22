@@ -15,7 +15,7 @@
      <%= link_to 'edit',edit_page_path(page) %>
    </td>
    <td>
-   <%= linc_to 'destroy',page_path(page), method: :delete, data: {confirm: 'Вы уверены?'} %>
+   <%= link_to 'destroy',page_path(page), method: :delete, data: {confirm: 'Вы уверены?'} %>
    </td>
    </tr>
    <% end %>
