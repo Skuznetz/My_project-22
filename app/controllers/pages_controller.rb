@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-   before_filter :find_page, only: [:idit,:update,:show,:destroy]
-   before_filter :authenticate_user!, except => [:show, :index]
-
+   before_filter :find_page, only: [:edit,:update,:show,:destroy]
+   
+before_filter :authenticate_user!
 
 	def new
 		@page = Page.new
